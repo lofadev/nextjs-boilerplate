@@ -1,8 +1,11 @@
+import PageWrapper from '@/components/page-wrapper';
+
 const Page = () => {
   return (
-    <div>
+    <PageWrapper>
       <h1>NextJS 15 + Shadcn UI + TailwindCss 4 + Typescript</h1>
-    </div>
+      <p>This is content</p>
+    </PageWrapper>
   );
 };
 
