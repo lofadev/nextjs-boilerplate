@@ -3,9 +3,9 @@ import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { Manrope } from 'next/font/google';
 
-import { ThemeProvider } from 'next-themes';
-
 import '@/app/globals.css';
+import Header from '@/components/header';
+import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
   title: 'NextJS 15 + Shadcn UI + TailwindCss 4 + Typescript',
@@ -22,7 +22,10 @@ const Layout = ({ children }: Readonly<{ children: ReactNode }>) => {
   return (
     <html suppressHydrationWarning lang='en'>
       <body className={`${manrope.className} bg-background text-foreground antialiased`}>
-        <ThemeProvider attribute='class'>{children}</ThemeProvider>
+        <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
+          <Header />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
